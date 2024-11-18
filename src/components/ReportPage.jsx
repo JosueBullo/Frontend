@@ -24,8 +24,8 @@ const SummaryReport = () => {
 
     const fetchData = async () => {
         try {
-            const incomeResponse = await axios.get('http://127.0.0.1:8000/api/income/');
-            const expensesResponse = await axios.get('http://127.0.0.1:8000/api/expenses/');
+            const incomeResponse = await axios.get('https://backend-1m2o.onrender.com/api/income/');
+            const expensesResponse = await axios.get('https://backend-1m2o.onrender.com/api/expenses/');
 
             // Filter data based on user ID
             const filteredIncome = incomeResponse.data.filter((item) => item.user === parseInt(userId));
