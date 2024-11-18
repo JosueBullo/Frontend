@@ -13,7 +13,7 @@ const Register = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/register/', { username, password });
+            const response = await axios.post('https://backend-1m2o.onrender.com/api/register/', { username, password });
             setMessage(response.data.message);
 
             if (response.data.success) {

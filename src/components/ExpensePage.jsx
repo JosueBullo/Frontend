@@ -296,7 +296,7 @@ const ExpensePage = () => {
 
     const fetchExpenses = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/api/expenses/');
+            const response = await axios.get('https://backend-1m2o.onrender.com/api/expenses/');
             const filteredExpenses = response.data.filter((expense) => expense.user == userId);
             setExpenses(filteredExpenses);
         } catch (err) {
@@ -314,9 +314,9 @@ const ExpensePage = () => {
         e.preventDefault();
         try {
             if (editingId) {
-                await axios.put(`http://localhost:8000/api/expenses/${editingId}/`, formData);
+                await axios.put(`https://backend-1m2o.onrender.com/api/expenses/${editingId}/`, formData);
             } else {
-                await axios.post('http://localhost:8000/api/expenses/', formData);
+                await axios.post('https://backend-1m2o.onrender.com/api/expenses/', formData);
             }
             fetchExpenses();
             setFormData({ amount: '', category: '', description: '', date: '', user: userId });
@@ -334,7 +334,7 @@ const ExpensePage = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:8000/api/expenses/${id}/`);
+            await axios.delete(`https://backend-1m2o.onrender.com/api/expenses/${id}/`);
             fetchExpenses();
         } catch (err) {
             setError('Error deleting expense. Please try again.');

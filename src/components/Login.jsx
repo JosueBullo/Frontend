@@ -26,7 +26,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/login/', { username, password });
+            const response = await axios.post('https://backend-1m2o.onrender.com/api/login/', { username, password });
             
             const userInfo = decodeTokenManually(response.data.access);
             console.log("User Info:", userInfo);

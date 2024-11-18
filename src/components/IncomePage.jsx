@@ -47,7 +47,7 @@ const IncomePage = () => {
 
     const fetchIncomes = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/api/income/');
+            const response = await axios.get('https://backend-1m2o.onrender.com/api/income/');
             const filteredIncomes = response.data.filter((income) => income.user == userId);
             setIncomes(filteredIncomes);
         } catch (error) {
@@ -65,10 +65,10 @@ const IncomePage = () => {
         e.preventDefault();
         try {
             if (editingId) {
-                await axios.put(`http://localhost:8000/api/income/${editingId}/`, formData);
+                await axios.put(`https://backend-1m2o.onrender.com/api/income/${editingId}/`, formData);
                 alert('Income updated successfully!');
             } else {
-                await axios.post('http://localhost:8000/api/income/', formData);
+                await axios.post('https://backend-1m2o.onrender.com/api/income/', formData);
                 alert('Income added successfully!');
             }
             fetchIncomes();
@@ -87,7 +87,7 @@ const IncomePage = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:8000/api/income/${id}/`);
+            await axios.delete(`https://backend-1m2o.onrender.com/api/income/${id}/`);
             alert('Income deleted successfully!');
             fetchIncomes();
         } catch (error) {

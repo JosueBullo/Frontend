@@ -345,7 +345,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchIncomes = async () => {
           try {
-            const response = await axios.get('http://localhost:8000/api/income/');
+            const response = await axios.get('https://backend-1m2o.onrender.com/api/income/');
             const filteredIncomes = response.data.filter((income) => income.user == localStorage.getItem('userId'));
             setIncomes(filteredIncomes);
           } catch (error) {
@@ -355,7 +355,7 @@ const Dashboard = () => {
     
         const fetchExpenses = async () => {
           try {
-            const response = await axios.get('http://localhost:8000/api/expenses/');
+            const response = await axios.get('https://backend-1m2o.onrender.com/api/expenses/');
             const filteredExpenses = response.data.filter((expense) => expense.user == localStorage.getItem('userId'));
             setExpenses(filteredExpenses);
           } catch (error) {
@@ -365,7 +365,7 @@ const Dashboard = () => {
     
         const fetchBudgets = async () => {
           try {
-            const response = await axios.get('http://localhost:8000/api/budget/');
+            const response = await axios.get('https://backend-1m2o.onrender.com/api/budget/');
             const filteredBudgets = response.data.filter((budget) => budget.user == localStorage.getItem('userId'));
             setBudgets(filteredBudgets);
           } catch (error) {

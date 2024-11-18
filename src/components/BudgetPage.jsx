@@ -341,7 +341,7 @@ const BudgetPage = () => {
 
     const fetchBudgets = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:8000/api/budget/');
+            const response = await axios.get('https://backend-1m2o.onrender.com/api/budget/');
             const userId = localStorage.getItem('userId');
             const filteredBudgets = response.data.filter((budget) => budget.user == userId);
             setBudgets(filteredBudgets);
@@ -352,7 +352,7 @@ const BudgetPage = () => {
 
     const fetchExpenses = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/api/expenses/');
+            const response = await axios.get('https://backend-1m2o.onrender.com/api/expenses/');
             const userId = localStorage.getItem('userId');
             const filteredExpenses = response.data.filter((expense) => expense.user == userId);
             setExpenses(filteredExpenses);
@@ -384,10 +384,10 @@ const BudgetPage = () => {
             };
 
             if (editingId) {
-                await axios.put(`http://127.0.0.1:8000/api/budget/${editingId}/`, updatedEntry);
+                await axios.put(`https://backend-1m2o.onrender.com/api/budget/${editingId}/`, updatedEntry);
                 alert('Budget entry updated successfully!');
             } else {
-                await axios.post('http://127.0.0.1:8000/api/budget/', updatedEntry);
+                await axios.post('https://backend-1m2o.onrender.com/api/budget/', updatedEntry);
                 alert('Budget entry saved successfully!');
             }
 
@@ -409,7 +409,7 @@ const BudgetPage = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://127.0.0.1:8000/api/budget/${id}/`);
+            await axios.delete(`https://backend-1m2o.onrender.com/api/budget/${id}/`);
             alert('Budget entry deleted successfully!');
             fetchBudgets();
         } catch (error) {
